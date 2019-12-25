@@ -1,0 +1,6 @@
+venv
+*.pyc
+/.vscode
+__pycache__
+ids.pickle
+
