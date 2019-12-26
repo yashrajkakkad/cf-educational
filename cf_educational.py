@@ -1,6 +1,8 @@
 import requests
 import pickle
 
+TAGS = ''
+
 
 def get_ids():
     response = requests.get('https://codeforces.com/api/contest.list')
@@ -25,7 +27,7 @@ def load_ids():
     return ids
 
 
-def get_problems(tags):
+def get_problems(tags=TAGS):
     ids = get_ids()
     response = requests.get(
         'https://codeforces.com/api/problemset.problems', params={"tags": tags})
@@ -46,6 +48,6 @@ def get_problems(tags):
 
 
 if __name__ == "__main__":
-    problems = get_problems("dp")
+    problems = get_problems()
     for problem in problems:
         print(problem[0], problem[1], problem[2], sep="\t")
